@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from "vue"
-import Modal from './components/script_setup/Modal.vue';
+import Modal from './components/options_api/Modal.vue';
 
 const modal = ref(null)
 </script>
 
 <template>
   <button @click="modal.open()">Outside trigger</button>
-  <Modal ref="modal" />
+  <Modal ref="modal"/>
 </template>
 
 <style scoped>
