@@ -2,11 +2,14 @@ import { ref, defineComponent } from "vue";
 import "./modal.css";
 
 const Modal = defineComponent({
-  setup(props, context) {
+  setup(props, { expose }) {
     const isOpen = ref(false);
     const open = () => (isOpen.value = true);
     const close = () => (isOpen.value = false);
 
+    expose({
+      open
+    })
     return () => (
       <>
         <button onClick={open}>Toggle</button>
