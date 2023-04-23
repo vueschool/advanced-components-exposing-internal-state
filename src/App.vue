@@ -1,8 +1,8 @@
 <script setup>
-import Menu from "./components/lesson_2/2.2.slot-props/Menu.vue";
-import MenuButton from "./components/lesson_2/2.2.slot-props/MenuButton.vue";
-import MenuItems from "./components/lesson_2/2.2.slot-props/MenuItems.vue";
-import MenuItem from "./components/lesson_2/2.2.slot-props/MenuItem.vue";
+import Menu from "./components/lesson_2/2.3.jsx-slot-props/Menu";
+import MenuButton from "./components/lesson_2/2.3.jsx-slot-props/MenuButton";
+import MenuItems from "./components/lesson_2/2.3.jsx-slot-props/MenuItems";
+import MenuItem from "./components/lesson_2/2.3.jsx-slot-props/MenuItem";
 </script>
 
 <template>
