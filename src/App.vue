@@ -1,13 +1,29 @@
 <script setup>
-import { ref } from "vue"
-import Modal from './components/jsx/Modal';
-
-const modal = ref(null)
+import Menu from "./components/lesson_2/2.2.slot-props/Menu.vue";
+import MenuButton from "./components/lesson_2/2.2.slot-props/MenuButton.vue";
+import MenuItems from "./components/lesson_2/2.2.slot-props/MenuItems.vue";
+import MenuItem from "./components/lesson_2/2.2.slot-props/MenuItem.vue";
 </script>
 
 <template>
-  <button @click="modal.open()">Outside trigger</button>
-  <Modal ref="modal" />
+  <div @click="open">Click on the below menu : </div>
+  <Menu v-slot="{ open, close }">
+    <MenuButton>Actions</MenuButton>
+    <MenuItems>
+      <MenuItem v-slot="{ active }">
+        <span :class="{ active }"> Edit </span>
+      </MenuItem>
+      <MenuItem v-slot="{ active }">
+        <span :class="{ active }"> Update </span>
+      </MenuItem>
+      <MenuItem v-slot="{ active }">
+        <span :class="{ active }"> Add </span>
+      </MenuItem>
+      <MenuItem v-slot="{ active }">
+        <span :class="{ active }" @click="close"> Intended option </span>
+      </MenuItem>
+    </MenuItems>
+  </Menu>
 </template>
 
 <style scoped>

@@ -7,9 +7,8 @@ const Modal = defineComponent({
     const open = () => (isOpen.value = true);
     const close = () => (isOpen.value = false);
 
-    expose({
-      open
-    })
+    expose({ open })
+    
     return () => (
       <>
         <button onClick={open}>Toggle</button>
