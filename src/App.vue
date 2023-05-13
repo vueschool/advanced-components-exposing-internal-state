@@ -12,7 +12,7 @@ const selected = ref('')
 <template>
   <div>Click on the below menu : </div>
   <Menu v-model="selected">
-    <MenuButton>Actions</MenuButton>
+    <MenuButton>{{ 'Actions' }}</MenuButton>
     <MenuItems>
       <MenuItem v-for="item in menuItems" :key="item">
         <span :class="{ active: item === selected }"> {{ item }} </span>
