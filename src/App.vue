@@ -1,19 +1,24 @@
 <script setup>
-import MouseCoordinates from "./components/lesson_2/2.4.ExerciceMouse/MouseCoordinates.vue";
-const screenSize = window.screen.width
+import { ref } from "vue";
+import Menu from "./components/lesson_3/legacy-model/Menu.vue";
+import MenuButton from "./components/lesson_3/legacy-model/MenuButton.vue";
+import MenuItems from "./components/lesson_3/legacy-model/MenuItems.vue";
+import MenuItem from "./components/lesson_3/legacy-model/MenuItem.vue";
+
+const menuItems = ["Edit", "Update", "Add", "Intended option"]
+const selected = ref('')
 </script>
 
 <template>
-  <MouseCoordinates v-slot="{ x, y }">
-    <div class="container">
-      <div class="left">
-        <button v-if="(screenSize / 2) < x">Left</button>
-      </div>
-      <div class="right">
-        <button v-if="(screenSize / 2) > x">right</button>
-      </div>
-    </div>
-  </MouseCoordinates>
+  <div>Click on the below menu : </div>
+  <Menu v-model="selected">
+    <MenuButton>Actions</MenuButton>
+    <MenuItems>
+      <MenuItem v-for="item in menuItems" :key="item">
+        <span :class="{ active: item === selected }"> {{ item }} </span>
+      </MenuItem>
+    </MenuItems>
+  </Menu>
 </template>
 
 <style scoped>
