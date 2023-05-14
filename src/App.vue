@@ -1,29 +1,19 @@
 <script setup>
-import Menu from "./components/lesson_2/2.3.jsx-slot-props/Menu";
-import MenuButton from "./components/lesson_2/2.3.jsx-slot-props/MenuButton";
-import MenuItems from "./components/lesson_2/2.3.jsx-slot-props/MenuItems";
-import MenuItem from "./components/lesson_2/2.3.jsx-slot-props/MenuItem";
+import MouseCoordinates from "./components/lesson_2/2.4.ExerciceMouse/MouseCoordinates.vue";
+const screenSize = window.screen.width
 </script>
 
 <template>
-  <div @click="open">Click on the below menu : </div>
-  <Menu v-slot="{ open, close }">
-    <MenuButton>Actions</MenuButton>
-    <MenuItems>
-      <MenuItem v-slot="{ active }">
-        <span :class="{ active }"> Edit </span>
-      </MenuItem>
-      <MenuItem v-slot="{ active }">
-        <span :class="{ active }"> Update </span>
-      </MenuItem>
-      <MenuItem v-slot="{ active }">
-        <span :class="{ active }"> Add </span>
-      </MenuItem>
-      <MenuItem v-slot="{ active }">
-        <span :class="{ active }" @click="close"> Intended option </span>
-      </MenuItem>
-    </MenuItems>
-  </Menu>
+  <MouseCoordinates v-slot="{ x, y }">
+    <div class="container">
+      <div class="left">
+        <button v-if="(screenSize / 2) < x">Left</button>
+      </div>
+      <div class="right">
+        <button v-if="(screenSize / 2) > x">right</button>
+      </div>
+    </div>
+  </MouseCoordinates>
 </template>
 
 <style scoped>
@@ -40,5 +30,19 @@ import MenuItem from "./components/lesson_2/2.3.jsx-slot-props/MenuItem";
 
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  /* flex-direction: column; */
+}
+
+.left {
+  flex: 1
+}
+
+.right {
+  flex: 1
 }
 </style>
